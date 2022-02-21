@@ -1,17 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#=begin
 puts "Clearing database..."
     User.destroy_all
+        ActiveRecord::Base.connection.reset_pk_sequence!('users') #ID down to 1
+
     Event.destroy_all
+        ActiveRecord::Base.connection.reset_pk_sequence!('events') #ID down to 1
+
     Participation.destroy_all
+        ActiveRecord::Base.connection.reset_pk_sequence!('participations') #ID down to 1
+
     Admin.destroy_all
+        ActiveRecord::Base.connection.reset_pk_sequence!('admins') #ID down to 1
 puts "Database cleared !"
+
 
 
 puts "Creating users..."
@@ -28,6 +28,7 @@ admin_option_array = [true, false]
     print "."
 end
 puts "Users successfully created !"
+
 
 
 puts "Creating admins..."
@@ -48,7 +49,8 @@ users.each do |i|
 end
 puts "Users successfully created !"
 puts "Admins successfully created !"
-#=end
+
+
 
 puts "Creating events... "
 event_array = ["Party 1","Party 2","Party 3","Party 4","Party 5","Party 6","Party 7","Party 8","Party 9", "Party 10"]
@@ -72,6 +74,7 @@ event_array = ["Party 1","Party 2","Party 3","Party 4","Party 5","Party 6","Part
     puts event.admin_id
 end
 puts "Events successfully created !"
+
 
 
 puts "Creating participations..."

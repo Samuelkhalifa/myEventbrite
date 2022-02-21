@@ -7,6 +7,16 @@ class User < ApplicationRecord
 
     ###VALIDATES###
 
+
+    ###CALLBACKS###
+    after_create :welcome_send
+
+    
+    ###METHODS###
+    def welcome_send
+      UserMailer.welcome_email(self).deliver_now
+    end
+
       
         
 
