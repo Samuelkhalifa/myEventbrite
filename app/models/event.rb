@@ -3,7 +3,7 @@ class Event < ApplicationRecord
     ###PLUGINS###
     has_many :participations
     has_many :users, through: :participations
-    belongs_to :user, foreign_key: "admin_number", class_name: "User", optional: true
+    belongs_to :admin
 
 
     ###VALIDATES###
@@ -23,7 +23,7 @@ class Event < ApplicationRecord
         presence: true
         #length: { in: 200..1000 }
     
-     validates :price,
+    validates :price,
         presence: true
         #numericality: { in: 1..1000 }
     

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_152517) do
+ActiveRecord::Schema.define(version: 2022_02_19_221428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.datetime "start_date"
@@ -22,10 +32,10 @@ ActiveRecord::Schema.define(version: 2022_02_19_152517) do
     t.text "description"
     t.integer "price"
     t.string "location"
-    t.bigint "admin_number_id"
+    t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_number_id"], name: "index_events_on_admin_number_id"
+    t.index ["admin_id"], name: "index_events_on_admin_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -45,7 +55,6 @@ ActiveRecord::Schema.define(version: 2022_02_19_152517) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "admin"
-    t.integer "admin_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
