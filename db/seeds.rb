@@ -1,3 +1,4 @@
+=begin
 puts "Clearing database..."
     User.destroy_all
         ActiveRecord::Base.connection.reset_pk_sequence!('users') #ID down to 1
@@ -75,10 +76,11 @@ event_array = ["Party 1","Party 2","Party 3","Party 4","Party 5","Party 6","Part
 end
 puts "Events successfully created !"
 
+=end
 
 
 puts "Creating participations..."
-40.times do |i|
+1.times do |i|
     Participation.create(
         user_id: User.all.sample.id,
         event_id: Event.all.sample.id,

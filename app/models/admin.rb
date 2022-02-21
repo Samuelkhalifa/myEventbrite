@@ -6,4 +6,6 @@ class Admin < ApplicationRecord
    
        ###VALIDATES###
 
+
+
 end

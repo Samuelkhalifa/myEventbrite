@@ -13,7 +13,7 @@ class Participation < ApplicationRecord
     ###METHODS###
     def join_event_send
         AdminMailer.join_event_email(self).deliver_now
-    end
+     end
   
 
 
