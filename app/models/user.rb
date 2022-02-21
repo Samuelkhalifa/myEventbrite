@@ -11,13 +11,11 @@ class User < ApplicationRecord
     ###CALLBACKS###
     after_create :welcome_send
 
-    
+
     ###METHODS###
     def welcome_send
-      UserMailer.welcome_email(self).deliver_now
+        UserMailer.welcome_email(self).deliver_now
     end
-
-      
-        
+     
 
 end
