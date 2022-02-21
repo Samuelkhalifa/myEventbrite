@@ -69,5 +69,7 @@ gem 'table_print'
 gem 'faker'
 gem 'better_errors'
 gem 'letter_opener' 
+gem 'letter_opener_web'
+gem 'dotenv-rails'
 
 ##########################################
